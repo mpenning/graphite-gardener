@@ -3,17 +3,17 @@ import os
 
 from setuptools import setup, find_packages
 import sys
-CURRENT_PATH=os.getcwd()+'/polymer'
+CURRENT_PATH=os.getcwd()+'/graphite-gardener'
 sys.path.insert(1,CURRENT_PATH)
 
 def read(fname):
     # Dynamically generate setup(long_description)
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-setup(name='polymer',
-      version="0.0.3",
-      description='Polymer',
-      url='http://github.com/mpenning/polymer',
+setup(name='graphite-gardener',
+      version="0.0.2",
+      description='graphite-gardner',
+      url='http://github.com/mpenning/graphite-gardener',
       author='David Michael Pennington',
       author_email='mike /|at|\ pennington.net',
       license='GPL',
