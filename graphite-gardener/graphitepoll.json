@@ -1,0 +1,64 @@
+{
+    "worker_count": 7,
+    "worker_cycle_sleep": 0.001,
+    "escape_character": "_",
+    "graphite_server": "127.0.0.1",
+    "graphite_port": 2004,
+    "graphite_prefix": "home",
+    "_comment": "snmpdata contains definitions used by hosts",
+    "snmpdata": [
+        {
+            "name": "std_if_octets64",
+            "table": true,
+            "mib": "IF-MIB",
+            "index": "ifName",
+            "row_prune_oid": "ifOperStatus",
+            "row_prune_value": "down",
+            "force_prune_type_int": false,
+            "type_alias": "if_octets",
+            "oids": {"ifHCInOctets": "rx", 
+                "ifHCOutOctets": "tx"}
+        },
+        {
+            "name": "std_if_ucastpkts64",
+            "table": true,
+            "mib": "IF-MIB",
+            "index": "ifName",
+            "row_prune_oid": "ifOperStatus",
+            "row_prune_value": "down",
+            "force_prune_type_int": false,
+            "type_alias": "if_ucastpkts",
+            "oids": {"ifHCInUcastPkts": "rx", 
+                "ifHCOutUcastPkts": "tx"}
+        },
+        {
+            "name": "std_if_bcastpkts64",
+            "table": true,
+            "mib": "IF-MIB",
+            "index": "ifName",
+            "row_prune_oid": "ifOperStatus",
+            "row_prune_value": "down",
+            "force_prune_type_int": false,
+            "type_alias": "if_bcastpkts",
+            "oids": {"ifHCInBroadcastPkts": "rx", 
+                "ifHCOutBroadcastPkts": "tx"}
+        }
+        ],
+    "hosts": [
+        {
+            "name": "sw1",
+            "addr": "172.16.1.1",
+            "community": "public",
+            "interval": 30,
+            "snmpdata_names": [ "std_if_octets64", "std_if_ucastpkts64", 
+                "std_if_bcastpkts64" ]
+        },
+        {
+            "name": "sw2",
+            "addr": "172.16.1.2",
+            "community": "public",
+            "interval": 30,
+            "snmpdata_names": [ "std_if_octets64", "std_if_ucastpkts64" ]
+        }
+    ]
+}
